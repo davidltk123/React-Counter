@@ -14,6 +14,7 @@ class MultiCounter extends Component {
     };
 
     updateSum = (sum) => {
+        console.log(sum);
         this.setState({ sum: sum });
     };
 

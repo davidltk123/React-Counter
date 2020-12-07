@@ -6,12 +6,12 @@ class Counter extends Component {
         this.state = { number: 0 };
     }
     onIncrease = () => {
-        this.setState((preState) => ({ number: preState.number + 1 }));
+        this.setState((prevState) => ({ number: prevState.number + 1 }));
         this.props.increase();
     };
 
     onDecrease = () => {
-        this.setState((preState) => ({ number: preState.number - 1 }));
+        this.setState((prevState) => ({ number: prevState.number - 1 }));
         this.props.decrease();
     };
 
