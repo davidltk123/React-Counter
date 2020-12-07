@@ -13,13 +13,11 @@ class CounterGroup extends Component {
     };
 
     increase = () => {
-        this.setState((prevState) => ({ sum: prevState.sum + 1 }));
-        this.props.sum(this.state.sum);
+        this.setState((prevState) => ({ sum: prevState.sum + 1 }), () => { this.props.sum(this.state.sum); });
     }
 
     decrease = () => {
-        this.setState((prevState) => ({ sum: prevState.sum - 1 }));
-        this.props.sum(this.state.sum);
+        this.setState((prevState) => ({ sum: prevState.sum - 1 }), () => { this.props.sum(this.state.sum); });
     }
 
     render() {
