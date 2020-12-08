@@ -21,18 +21,6 @@ class CounterGroup extends Component {
         return Array.from(Array(number).keys()).map(value =>  uuidv4());
     };
 
-    increase = () => {
-        this.updateSum(1);
-    }
-
-    decrease = () => {
-        this.updateSum(-1);
-    }
-
-    updateSum = (value) => {
-        this.props.sum(value);
-    }
-
     render() {
         const initArraySize = this.state.initArraySize;
         return (
