@@ -13,6 +13,10 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-const CounterSizeGeneratorContainer = connect(null, mapDispatchToProps)(CounterSizeGenerator);
+const mapStateToProps = state =>({
+    size: state.size
+})
+
+const CounterSizeGeneratorContainer = connect(mapStateToProps, mapDispatchToProps)(CounterSizeGenerator);
 
 export default CounterSizeGeneratorContainer;
