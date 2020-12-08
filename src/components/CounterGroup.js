@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Counter from './Counter';
 import { v4 as uuidv4 } from "uuid";
+import CounterContainer from '../containers/CounterContainer';
 
 class CounterGroup extends Component {
     constructor(props) {
@@ -16,7 +16,6 @@ class CounterGroup extends Component {
         }
     }
 
-    //change later
     initArraySize = (size) => {
         const number = size.length > 0 ? parseInt(size) : 0;
         return Array.from(Array(number).keys()).map(value =>  uuidv4());
@@ -40,7 +39,7 @@ class CounterGroup extends Component {
             <div>
                 {
                     initArraySize.map((value) =>
-                        <Counter key={value} increase={this.increase} decrease={this.decrease} />
+                        <CounterContainer key={value} />
                     )
                 }
             </div>
