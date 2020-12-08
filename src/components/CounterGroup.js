@@ -1,33 +1,41 @@
 import React, { Component } from 'react';
 import Counter from './Counter';
+import { v4 as uuidv4 } from "uuid";
 
 class CounterGroup extends Component {
     constructor(props) {
         super(props);
-        this.state = { sum: 0 };
+        this.state = {initArraySize : []};
     }
 
+    componentDidUpdate = (prevProps) => {
+        if (prevProps.size !== this.props.size) {
+            this.setState({
+                initArraySize : this.initArraySize(this.props.size)
+            });
+        }
+    }
+
+    //change later
     initArraySize = (size) => {
         const number = size.length > 0 ? parseInt(size) : 0;
-        return Array.from(Array(number).keys());
+        return Array.from(Array(number).keys()).map(value =>  uuidv4());
     };
 
     increase = () => {
-        this.setState((prevState) => ({ sum: prevState.sum + 1 }), this.updateSum);
+        this.updateSum(1);
     }
 
     decrease = () => {
-        this.setState((prevState) => ({ sum: prevState.sum - 1 }), this.updateSum);
+        this.updateSum(-1);
     }
 
-    updateSum = () => {
-        this.props.sum(this.state.sum);
+    updateSum = (value) => {
+        this.props.sum(value);
     }
 
     render() {
-        const size = this.props.size;
-        const initArraySize = this.initArraySize(size);
-
+        const initArraySize = this.state.initArraySize;
         return (
             <div>
                 {

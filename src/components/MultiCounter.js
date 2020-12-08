@@ -13,8 +13,8 @@ class MultiCounter extends Component {
         this.setState({ size: size, sum: 0 });
     };
 
-    updateSum = (sum) => {
-        this.setState({ sum: sum });
+    updateSum = (value) => {
+        this.setState({ sum: this.state.sum + value });
     };
 
     render() {
