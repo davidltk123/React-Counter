@@ -2,32 +2,20 @@ import React, { Component } from 'react';
 import { v4 as uuidv4 } from "uuid";
 import CounterContainer from '../containers/CounterContainer';
 
-class CounterGroup extends Component {
-    constructor(props) {
-        super(props);
-        this.state = { initArraySize: [] };
-    }
-
-    componentDidUpdate = (prevProps) => {
-        if (prevProps.size !== this.props.size) {
-            this.setState({
-                initArraySize: this.initArraySize(this.props.size)
-            });
-        }
-    }
+class CounterGroup extends Component {  
 
     initArraySize = (size) => {
         const number = size.length > 0 ? parseInt(size) : 0;
-        return Array.from(Array(number).keys()).map(value => uuidv4());
+        return Array.from(Array(number).keys());
     };
 
     render() {
-        const initArraySize = this.state.initArraySize;
+        const initArraySize = this.initArraySize(this.props.size);
         return (
             <div>
                 {
                     initArraySize.map((value) =>
-                        <CounterContainer key={value} />
+                        <CounterContainer key={uuidv4()} />
                     )
                 }
             </div>
