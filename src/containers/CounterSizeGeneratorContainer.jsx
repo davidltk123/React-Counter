@@ -4,7 +4,7 @@ import CounterSizeGenerator from "../components/CounterSizeGenerator";
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        updateCounterSize: (size) => { 
+        updateCounterSize: (size) => {
             dispatch(updateCounterSize(size));
         },
         resetSum: () => {
@@ -13,7 +13,7 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-const mapStateToProps = state =>({
+const mapStateToProps = state => ({
     size: state.size
 })
 

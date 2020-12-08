@@ -5,20 +5,20 @@ import CounterContainer from '../containers/CounterContainer';
 class CounterGroup extends Component {
     constructor(props) {
         super(props);
-        this.state = {initArraySize : []};
+        this.state = { initArraySize: [] };
     }
 
     componentDidUpdate = (prevProps) => {
         if (prevProps.size !== this.props.size) {
             this.setState({
-                initArraySize : this.initArraySize(this.props.size)
+                initArraySize: this.initArraySize(this.props.size)
             });
         }
     }
 
     initArraySize = (size) => {
         const number = size.length > 0 ? parseInt(size) : 0;
-        return Array.from(Array(number).keys()).map(value =>  uuidv4());
+        return Array.from(Array(number).keys()).map(value => uuidv4());
     };
 
     render() {

@@ -13,7 +13,7 @@ export const updateCounterSize = (size) => {
 }
 
 export const resetSum = () => {
-    return{
+    return {
         type: RESET
     }
 }

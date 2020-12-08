@@ -1,4 +1,4 @@
-import {connect} from "react-redux";
+import { connect } from "react-redux";
 import CounterGroupSum from "../components/CounterGroupSum";
 
 const mapStateToProps = status => ({
