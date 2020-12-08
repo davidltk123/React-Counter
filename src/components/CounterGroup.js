@@ -25,7 +25,7 @@ class CounterGroup extends Component {
     }
 
     render() {
-        const size = this.props.size < 0 ? 0 : this.props.size;
+        const size = this.props.size;
         const initArraySize = this.initArraySize(size);
 
         return (

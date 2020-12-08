@@ -12,11 +12,11 @@ class CounterSizeGenerator extends Component {
     }
 
     render() {
-        const size = this.state.size < 0 ? 0 : this.state.size;
+        const size = this.state.size;
 
         return (
             <div>
-                <input type="number" value={size} onChange={this.onChange} />
+                <input type="number" value={size} onChange={this.onChange} min="0"/>
             </div>
         );
     }
